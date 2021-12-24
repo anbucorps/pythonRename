@@ -19,8 +19,10 @@ def main():
 			# sort files in order (necessary for posix, works without this in windows)
 			files.sort()
 			for file in files:
+				if file.endswith(".db"):
+					os.remove(os.path.join(subdir, file))
 				#set foldername to parent directory of file
-				folder_name = os.path.basename(subdir)	
+				folder_name = os.path.basename(subdir)
 				# reset count to 1 when iterating in new folder, change dircheck to new folders name
 				if dircheck != folder_name:
 					i=1
